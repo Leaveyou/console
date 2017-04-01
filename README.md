@@ -77,3 +77,13 @@ The "--complex" parameter can only be used once since the expected value must be
        --simple      This parameter doesn't have a description
        --help        Shows this help message
 ```
+
+## To do
+
+- [x] Make a list
+- [ ] Unit tests
+- [ ] Replace native getopt() call to custom implementation
+- [ ] Make repository more S.O.L.I.D.
+- [ ] Better help page generation. Current one is crap.
+- [ ] Find more things for this list
+- [ ] Generate command synopsis and show optional parameters and usage
