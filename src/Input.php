@@ -3,7 +3,10 @@
 namespace Leaveyou\Console;
 
 
-use Leaveyou\Console\IncorrectImplementationException;
+use Leaveyou\Console\Exceptions\IncorrectImplementationException;
+use Leaveyou\Console\Exceptions\IncorrectUsageException;
+use Leaveyou\Console\Tools\CommandLineParser;
+use Leaveyou\Console\Tools\Help;
 
 class Input
 {

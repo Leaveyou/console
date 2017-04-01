@@ -1,8 +1,19 @@
 <?php
 
-namespace Leaveyou\Console;
+namespace Leaveyou\Console\Tools;
 
+use Leaveyou\Console\ParameterSet;
 
+/**
+ * This class generates the help message of the application
+ *
+ * @todo: decouple from implementation of class ParameterSet
+ * @todo: Add SYNOPSIS generation
+ * @todo: Add Start notes and end notes for the help message
+ * @todo: Implement support for --version parameter
+ *
+ * @package Leaveyou\Console
+ */
 class Help
 {
     public function render(ParameterSet $parameters, $errorMessage = "")

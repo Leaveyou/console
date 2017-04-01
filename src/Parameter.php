@@ -2,7 +2,7 @@
 
 namespace Leaveyou\Console;
 
-use Leaveyou\Console\IncorrectImplementationException;
+use Leaveyou\Console\Exceptions\IncorrectImplementationException;
 
 class Parameter
 {

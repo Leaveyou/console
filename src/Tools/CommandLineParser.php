@@ -1,9 +1,12 @@
 <?php
 
-namespace Leaveyou\Console;
+namespace Leaveyou\Console\Tools;
 
 
-use Leaveyou\Console\IncorrectImplementationException;
+use Leaveyou\Console\Exceptions\IncorrectImplementationException;
+use Leaveyou\Console\Exceptions\IncorrectUsageException;
+use Leaveyou\Console\Parameter;
+use Leaveyou\Console\ParameterSet;
 
 class CommandLineParser
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Leaveyou\Console;
+namespace Leaveyou\Console\Exceptions;
 
 
 class IncorrectImplementationException extends \InvalidArgumentException

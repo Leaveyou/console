@@ -1,6 +1,6 @@
 <?php
 
-namespace Leaveyou\Console;
+namespace Leaveyou\Console\Exceptions;
 
 
 class IncorrectUsageException extends \InvalidArgumentException

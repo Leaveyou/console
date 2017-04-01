@@ -1,7 +1,11 @@
 <?php
 
-namespace Leaveyou\Console;
+namespace Leaveyou\Console\Tools;
 
+
+use Leaveyou\Console\Exceptions\IncorrectUsageException;
+use Leaveyou\Console\Parameter;
+use Leaveyou\Console\ParameterSet;
 
 class ResultNormalizer
 {
