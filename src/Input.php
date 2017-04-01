@@ -3,6 +3,8 @@
 namespace Leaveyou\Console;
 
 
+use Leaveyou\Console\IncorrectImplementationException;
+
 class Input
 {
     /**
@@ -12,15 +14,44 @@ class Input
     protected $parameters;
 
     /**
+     * @var CommandLineParser
+     */
+    protected $parser;
+    /**
      * Whether the console input has been parsed.
      * This resets every time you add a parameter
      * @var bool
      */
     protected $parsed = false;
 
-    public function __construct(ParameterSet $parameters)
+    protected $parsedParameters = [];
+
+    /**
+     * @var Help
+     */
+    protected $help;
+
+    /**
+     * Input constructor.
+     * @param ParameterSet      $parameters
+     * @param CommandLineParser $parser
+     * @param Help              $help
+     */
+    public function __construct(ParameterSet $parameters, CommandLineParser $parser, Help $help)
     {
         $this->parameters = $parameters;
+        $this->parser = $parser;
+        $this->help = $help;
+
+        $this->setDefaultParameters();
+    }
+
+    private function setDefaultParameters()
+    {
+        $helpParameter = new Parameter(Parameter::OPTION_HELP);
+        $helpParameter->setDescription("Shows this help message");
+        $helpParameter->setType(Parameter::TYPE_FLAG);
+        $this->parameters->addParameter($helpParameter);
     }
 
     public function addParameter(Parameter $parameter)
@@ -30,13 +61,23 @@ class Input
 
         // add the parameter to parameter storage
         $this->parameters->addParameter($parameter);
-
-
     }
 
-    public function getValue($parameterName, $default = false)
+    public function getValue($parameterName)
     {
+        if (!is_string($parameterName)) {
+            throw new IncorrectImplementationException("Parameter name must be a string");
+        }
+
         $this->parse();
+
+        $parameter = $this->parameters->getByEitherName($parameterName);
+        $parameterLongName = $parameter->getLongName();
+
+        if (!isset($this->parsedParameters[$parameterLongName])) {
+            return $parameter->getDefaultValue();
+        }
+        return $this->parsedParameters[$parameterLongName];
     }
 
     /**
@@ -49,7 +90,12 @@ class Input
             return true;
         }
 
-        // todo: parse input
+        try {
+            $this->parsedParameters = $this->parser->parse($this->parameters);
+        } catch (IncorrectUsageException $e) {
+            $help = $this->help->render($this->parameters, $e->getMessage());
+            die($help);
+        }
 
         $this->parsed = true;
         return true;
