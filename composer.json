@@ -1,8 +1,7 @@
 {
     "name": "leaveyou/console",
     "description": "A set of console related components without the overhead of the illuminate framework",
-    "type": "composer-plugin",
-    "version": "1.0.0-alpha.2",
+    "version": "1.0.0-alpha.3",
     "license": "MIT",
     "authors": [
         {
