@@ -9,7 +9,7 @@
             "email": "liviu.gelea@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {},
     "require-dev": {},
     "autoload": {
