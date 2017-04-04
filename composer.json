@@ -1,5 +1,5 @@
 {
-    "name": "Leaveyou/console",
+    "name": "leaveyou/console",
     "description": "A set of console related components without the overhead of the illuminate framework",
     "version": "1.0.0",
     "license": "MIT",
