@@ -2,12 +2,15 @@
 
 namespace Leaveyou\Console\Tests\Input;
 
-use PHPUnit\Framework\TestCase;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
 
-class setDefaultParametersTest extends TestCase
+class setDefaultParametersTest extends MockeryTestCase
 {
     public function testSomething()
     {
         $this->assertTrue(true);
+
     }
+
+
 }

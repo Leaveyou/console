@@ -9,12 +9,12 @@
             "email": "liviu.gelea@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
     },
     "require-dev": {
-        "mockery/mockery": "^0.9.9",
-        "phpunit/phpunit": "^6.0"
+        "mockery/mockery": "dev-master",
+        "phpunit/phpunit": "dev-master"
     },
     "autoload": {
         "psr-4": {
