@@ -4,6 +4,7 @@ namespace Leaveyou\Console\Tests\Input;
 
 use Leaveyou\Console\Input;
 use Leaveyou\Console\ParameterSet;
+use Leaveyou\Console\Tests\ProtectedHelper;
 use Leaveyou\Console\Tools\CommandLineParser;
 use Leaveyou\Console\Tools\Help;
 use Mockery;
@@ -48,13 +49,18 @@ class __constructTest extends MockeryTestCase
         $this->parameters = Mockery::mock(ParameterSet::class);
         $this->parser = Mockery::mock(CommandLineParser::class);
         $this->help = Mockery::mock(Help::class);
-
-        Mockery::spy();
     }
 
     public function testParametersAreSet()
     {
+        $this->parameters->shouldReceive("addParameter")->once()->andReturnNull();
         $this->class = new Input($this->parameters, $this->parser, $this->help);
+
+        $accessibleClass = new ProtectedHelper($this->class);
+
+        $this->assertEquals($accessibleClass->parameters, $this->parameters);
+        $this->assertEquals($accessibleClass->parser, $this->parser);
+        $this->assertEquals($accessibleClass->help, $this->help);
     }
 
 

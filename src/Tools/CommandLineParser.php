@@ -51,6 +51,10 @@ class CommandLineParser
         return $values;
     }
 
+    /**
+     * @param Parameter $parameter
+     * @return string
+     */
     protected function getParameterSuffix(Parameter $parameter)
     {
         $parameterType = $parameter->getType();
