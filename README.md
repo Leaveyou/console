@@ -1,5 +1,7 @@
 # Console
 
+[![Travis](https://img.shields.io/travis/Leaveyou/console.svg)](https://travis-ci.org/Leaveyou/console)
+
 A set of console components for parsing command line arguments
 
 ## Features:
