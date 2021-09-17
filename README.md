@@ -1,6 +1,6 @@
 # Console
 
-[![Travis](https://img.shields.io/travis/Leaveyou/console.svg)](https://travis-ci.org/Leaveyou/console)
+[![Travis](https://app.travis-ci.com/Leaveyou/console.svg?branch=master)](https://app.travis-ci.com/github/Leaveyou/console)
 
 A set of console components for parsing command line arguments
 
